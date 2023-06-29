@@ -8,6 +8,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   var controller = new MaskedTextController(mask: '0000-0000-000-00');
+
+  bool checkedValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,8 +69,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: () {},
                       icon: Image.asset(
                         "images/Cross Icon.png",
-                        height: 24,
-                        width: 24,
+                        height: 17,
+                        width: 17,
                       ),
                     ),
                   ),
@@ -87,7 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       color: Color.fromRGBO(124, 124, 124, 1), width: 2),
                 ),
                 child: TextField(
-                  controller: controller,
+                  obscureText: true,
                   decoration: InputDecoration(
                     labelText: "Пароль",
                     suffixIcon: IconButton(
@@ -96,8 +98,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: () {},
                       icon: Image.asset(
                         "images/Cross Icon.png",
-                        height: 24,
-                        width: 24,
+                        height: 17,
+                        width: 17,
                       ),
                     ),
                   ),
@@ -105,7 +107,89 @@ class _SignInScreenState extends State<SignInScreen> {
                   onChanged: (value) {},
                 ),
               ),
-            )
+            ),
+            CheckboxListTile(
+              title: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Я прочитал и согласен с условиями ',
+                      style: TextStyle(
+                          color: Color.fromRGBO(33, 29, 29, 1),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "SF Pro Display"),
+                    ),
+                    TextSpan(
+                      text: ' Пользовательского соглашения',
+                      style: TextStyle(
+                        color: Color.fromRGBO(1, 85, 79, 1),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              value: checkedValue,
+              onChanged: (newValue) {
+                setState(() {
+                  checkedValue = newValue!;
+                });
+              },
+              controlAffinity:
+                  ListTileControlAffinity.leading, //  <-- leading Checkbox
+            ),
+            SizedBox(
+              height: 104,
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 18.0),
+              child: SizedBox(
+                height: 46,
+                width: 328,
+                child: MaterialButton(
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: Color.fromRGBO(28, 120, 103, 1),
+                  child: Center(
+                    child: Text(
+                      "Войти",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "SF Pro Text",
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 24.0, right: 23.0),
+              child: RichText(
+                text: TextSpan(
+                  text: 'Обратитсесь в ',
+                  style: TextStyle(
+                      color: Color.fromRGBO(33, 29, 29, 1),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "SF Pro Display"),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Службу поддержки',
+                      style: TextStyle(
+                        color: Color.fromRGBO(1, 85, 79, 1),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ", если забыли свои данные",
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
