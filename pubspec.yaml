@@ -17,3 +17,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - public/images/search.png
+    - public/images/user.png
+    - public/images/doctor.png
+    - public/images/doctor2.png
+    - public/images/doctor3.png
+    - public/images/card-tag.png
+    - public/images/card-tag2.png
+    - public/images/card-tag3.png
+    - public/images/cardprod.png
+    - public/images/ushi.png
+    - public/images/ber.png
+    - public/images/skid.png
+
