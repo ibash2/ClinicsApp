@@ -1,4 +1,6 @@
 import 'package:clinics_app/home_page.dart';
+import 'package:clinics_app/signin_screen.dart';
+import 'package:clinics_app/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +13,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage()
+      home: Scaffold(
+        body: Center(
+          child: WelcomeScreen(),
+        ),
+      ),
     );
   }
 }
