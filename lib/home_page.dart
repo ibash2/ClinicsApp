@@ -1,3 +1,5 @@
+import 'package:clinics_app/consultaion_page.dart';
+import 'package:clinics_app/medical_services.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -114,21 +116,35 @@ class HomePage extends StatelessWidget {
                 ),
               )),
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.only(left: 24, right: 24, top: 34, bottom: 12),
+            padding: EdgeInsets.only(
+              left: 24,
+              top: 24,
+            ),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Медицинские сервисы',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
-                  Text('все',
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: Color.fromRGBO(124, 124, 124, 1)))
+                  MaterialButton(
+                    padding: EdgeInsets.all(0),
+                    height: 20,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const MedicalServises()));
+                    },
+                    child: const Text('все',
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: Color.fromRGBO(124, 124, 124, 1))),
+                  )
                 ]),
           ),
         ),
@@ -141,10 +157,19 @@ class HomePage extends StatelessWidget {
                 height: 140,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    CardWidget(image: 'public/images/card-tag.png'),
-                    CardWidget(image: 'public/images/card-tag2.png'),
-                    CardWidget(image: 'public/images/card-tag3.png'),
+                  children: [
+                    MaterialButton(
+                        padding: EdgeInsets.all(0),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const ConsultaitionPage()));
+                        },
+                        child: CardWidget(image: 'public/images/card-tag.png')),
+                    const CardWidget(image: 'public/images/card-tag2.png'),
+                    const CardWidget(image: 'public/images/card-tag3.png'),
                   ],
                 ),
               )),
@@ -175,9 +200,18 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: const [
-                    TerapevtCard(name: 'Магомедов И. К.', otz: '5.0 (18 отзывов)', image: 'public/images/doctor.png'),
-                    TerapevtCard(name: 'Баймурзаев Р. Р.', otz: '5.0 (12 отзывов)', image: 'public/images/doctor2.png'),
-                    TerapevtCard(name: 'Синицина Н. М.', otz: '4.9 (10 отзывов)', image: 'public/images/doctor3.png'),
+                    TerapevtCard(
+                        name: 'Магомедов И. К.',
+                        otz: '5.0 (18 отзывов)',
+                        image: 'public/images/doctor.png'),
+                    TerapevtCard(
+                        name: 'Баймурзаев Р. Р.',
+                        otz: '5.0 (12 отзывов)',
+                        image: 'public/images/doctor2.png'),
+                    TerapevtCard(
+                        name: 'Синицина Н. М.',
+                        otz: '4.9 (10 отзывов)',
+                        image: 'public/images/doctor3.png'),
                   ],
                 ),
               )),
@@ -265,7 +299,8 @@ class TerapevtCard extends StatelessWidget {
   final String image;
   final String name;
   final String otz;
-  const TerapevtCard({super.key, required this.name,  required this.otz, required this.image});
+  const TerapevtCard(
+      {super.key, required this.name, required this.otz, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -283,14 +318,14 @@ class TerapevtCard extends StatelessWidget {
                 child: Image.asset(image),
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 8.0),
               child: Text(
                 name,
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 4.0),
               child: Row(
                 children: [

@@ -43,6 +43,11 @@ flutter:
     - public/images/ushi.png
     - public/images/ber.png
     - public/images/skid.png
+    - public/images/analiz.png
+    - public/images/chem.png
+    - public/images/daig.png
+    - public/images/cons.png
+    - public/images/proc.png
 
     - images/logo-icon-square.png
     - images/

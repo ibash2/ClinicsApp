@@ -1,4 +1,6 @@
+import 'package:clinics_app/consultaion_page.dart';
 import 'package:clinics_app/home_page.dart';
+import 'package:clinics_app/medical_services.dart';
 import 'package:clinics_app/signin_screen.dart';
 import 'package:clinics_app/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: WelcomeScreen(),
-        ),
+        body: WelcomeScreen()
       ),
     );
   }

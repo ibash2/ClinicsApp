@@ -1,3 +1,4 @@
+import 'package:clinics_app/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
@@ -148,7 +149,13 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 46,
                 width: 328,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const HomePage()));
+                  },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   color: Color.fromRGBO(28, 120, 103, 1),
